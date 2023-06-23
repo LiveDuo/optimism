@@ -11,7 +11,7 @@ version:
 
 compile:
 	cd $(contracts-dir) && \
-		yarn build
+		pnpm build
 
 bindings: compile
 	go run ./gen/main.go \
