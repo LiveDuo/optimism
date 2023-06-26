@@ -467,7 +467,7 @@ jobs:
       - run:
           name: slither
           command: |
-            pnpm install pnpm --global && slither --version && pnpm slither
+            npm install pnpm --global && slither --version && pnpm slither
       - run:
           name: invariant docs
           command: pnpm autogen:invariant-docs && git diff --exit-code ./invariant-docs/*.md
