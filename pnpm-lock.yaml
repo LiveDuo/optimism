@@ -165,7 +165,7 @@ importers:
         version: 5.7.0
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@17.0.21)(typescript@4.9.5)
+        version: 10.9.1(@types/node@12.20.52)(typescript@4.9.5)
 
   packages/common-ts:
     dependencies:
@@ -254,9 +254,21 @@ importers:
       '@openzeppelin/contracts-upgradeable':
         specifier: 4.7.3
         version: 4.7.3
+      '@rari-capital/solmate':
+        specifier: github:rari-capital/solmate#8f9b23f8838670afda0fd8983f2c41e8037ae6bc
+        version: github.com/rari-capital/solmate/8f9b23f8838670afda0fd8983f2c41e8037ae6bc
+      clones-with-immutable-args:
+        specifier: github:Saw-mon-and-Natalie/clones-with-immutable-args#105efee1b9127ed7f6fedf139e1fc796ce8791f2
+        version: github.com/Saw-mon-and-Natalie/clones-with-immutable-args/105efee1b9127ed7f6fedf139e1fc796ce8791f2
+      ds-test:
+        specifier: github:dapphub/ds-test#c9ce3f25bde29fc5eb9901842bf02850dfd2d084
+        version: github.com/dapphub/ds-test/c9ce3f25bde29fc5eb9901842bf02850dfd2d084
       ethers:
         specifier: ^5.7.0
         version: 5.7.1
+      forge-std:
+        specifier: github:foundry-rs/forge-std#e8a047e3f40f13fa37af6fe14e6e06283d9a060e
+        version: github.com/foundry-rs/forge-std/e8a047e3f40f13fa37af6fe14e6e06283d9a060e
     devDependencies:
       '@defi-wonderland/smock':
         specifier: ^2.0.2
@@ -320,7 +332,7 @@ importers:
         version: 0.0.5(prettier-plugin-solidity@1.0.0-beta.19)(prettier@2.8.2)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@17.0.21)(typescript@4.9.3)
+        version: 10.9.1(@types/node@12.20.52)(typescript@4.9.3)
       typechain:
         specifier: ^8.1.0
         version: 8.1.0(typescript@4.9.3)
@@ -329,6 +341,13 @@ importers:
         version: 4.9.3
 
   packages/contracts-periphery:
+    dependencies:
+      ds-test:
+        specifier: github:dapphub/ds-test#c9ce3f25bde29fc5eb9901842bf02850dfd2d084
+        version: github.com/dapphub/ds-test/c9ce3f25bde29fc5eb9901842bf02850dfd2d084
+      forge-std:
+        specifier: github:foundry-rs/forge-std#e8a047e3f40f13fa37af6fe14e6e06283d9a060e
+        version: github.com/foundry-rs/forge-std/e8a047e3f40f13fa37af6fe14e6e06283d9a060e
     devDependencies:
       '@eth-optimism/contracts-bedrock':
         specifier: 0.15.0
@@ -541,7 +560,7 @@ importers:
         version: 2.9.6(chai@4.3.7)
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@17.0.21)(typescript@4.9.5)
+        version: 10.9.1(@types/node@12.20.52)(typescript@4.9.5)
 
   packages/replica-healthcheck:
     dependencies:
@@ -557,7 +576,7 @@ importers:
     devDependencies:
       ts-node:
         specifier: ^10.9.1
-        version: 10.9.1(@types/node@17.0.21)(typescript@4.9.5)
+        version: 10.9.1(@types/node@12.20.52)(typescript@4.9.5)
 
   packages/sdk:
     dependencies:
@@ -1428,7 +1447,7 @@ packages:
   /@eth-optimism/contracts-bedrock@0.14.0:
     resolution: {integrity: sha512-mvbSE2q2cyHUwg1jtHwR4JOQJcwdCVRAkmBdXCKUP0XsP48NT1J92bYileRdiUM5nLIESgNNmPA8L2J87mr62g==}
     dependencies:
-      '@eth-optimism/core-utils': 0.12.0
+      '@eth-optimism/core-utils': 0.12.1
       '@openzeppelin/contracts': 4.7.3
       '@openzeppelin/contracts-upgradeable': 4.7.3
       ethers: 5.7.1
@@ -1473,6 +1492,23 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
+    dev: false
+
+  /@eth-optimism/core-utils@0.12.1:
+    resolution: {integrity: sha512-H2NnH9HTVDJmr9Yzb5R7GrAaYimcyIY4bF5Oud0xM1/DP4pSoNMtWm1kG3ZBpdqHFFYWH9GiSZZC5/cjFdKBEA==}
+    dependencies:
+      '@ethersproject/abi': 5.7.0
+      '@ethersproject/abstract-provider': 5.7.0
+      '@ethersproject/address': 5.7.0
+      '@ethersproject/bignumber': 5.7.0
+      '@ethersproject/bytes': 5.7.0
+      '@ethersproject/constants': 5.7.0
+      '@ethersproject/contracts': 5.7.0
+      '@ethersproject/keccak256': 5.7.0
+      '@ethersproject/properties': 5.7.0
+      '@ethersproject/rlp': 5.7.0
+      '@ethersproject/web': 5.7.1
+      chai: 4.3.7
     dev: false
 
   /@ethereum-waffle/chai@3.4.4:
@@ -3418,7 +3454,7 @@ packages:
       typechain: ^3.0.0
     dependencies:
       ethers: 5.7.1
-      typechain: 3.0.0(typescript@4.9.3)
+      typechain: 3.0.0(typescript@4.9.5)
     dev: true
 
   /@typechain/hardhat@6.1.2(@ethersproject/abi@5.7.0)(@ethersproject/providers@5.7.2)(@typechain/ethers-v5@10.1.0)(ethers@5.7.1)(hardhat@2.9.6)(typechain@8.1.0):
@@ -17077,7 +17113,7 @@ packages:
       tsconfig-paths: 3.14.1
     dev: true
 
-  /ts-node@10.9.1(@types/node@17.0.21)(typescript@4.9.3):
+  /ts-node@10.9.1(@types/node@12.20.52)(typescript@4.9.3):
     resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
     hasBin: true
     peerDependencies:
@@ -17096,7 +17132,7 @@ packages:
       '@tsconfig/node12': 1.0.9
       '@tsconfig/node14': 1.0.1
       '@tsconfig/node16': 1.0.2
-      '@types/node': 17.0.21
+      '@types/node': 12.20.52
       acorn: 8.9.0
       acorn-walk: 8.2.0
       arg: 4.1.3
@@ -17104,6 +17140,37 @@ packages:
       diff: 4.0.2
       make-error: 1.3.6
       typescript: 4.9.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    dev: true
+
+  /ts-node@10.9.1(@types/node@12.20.52)(typescript@4.9.5):
+    resolution: {integrity: sha512-NtVysVPkxxrwFGUUxGYhfux8k78pQB3JqYBXlLRZgdGUqTO5wU/UyHop5p70iEbGhB7q5KmiZiU0Y3KlJrScEw==}
+    hasBin: true
+    peerDependencies:
+      '@swc/core': '>=1.2.50'
+      '@swc/wasm': '>=1.2.50'
+      '@types/node': '*'
+      typescript: '>=2.7'
+    peerDependenciesMeta:
+      '@swc/core':
+        optional: true
+      '@swc/wasm':
+        optional: true
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.8
+      '@tsconfig/node12': 1.0.9
+      '@tsconfig/node14': 1.0.1
+      '@tsconfig/node16': 1.0.2
+      '@types/node': 12.20.52
+      acorn: 8.9.0
+      acorn-walk: 8.2.0
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 4.9.5
       v8-compile-cache-lib: 3.0.1
       yn: 3.1.1
     dev: true
@@ -19148,6 +19215,18 @@ packages:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: true
 
+  github.com/Saw-mon-and-Natalie/clones-with-immutable-args/105efee1b9127ed7f6fedf139e1fc796ce8791f2:
+    resolution: {tarball: https://codeload.github.com/Saw-mon-and-Natalie/clones-with-immutable-args/tar.gz/105efee1b9127ed7f6fedf139e1fc796ce8791f2}
+    name: clones-with-immutable-args
+    version: 2.0.0
+    dev: false
+
+  github.com/dapphub/ds-test/c9ce3f25bde29fc5eb9901842bf02850dfd2d084:
+    resolution: {tarball: https://codeload.github.com/dapphub/ds-test/tar.gz/c9ce3f25bde29fc5eb9901842bf02850dfd2d084}
+    name: ds-test
+    version: 1.0.0
+    dev: false
+
   github.com/ethereumjs/ethereumjs-abi/ee3994657fa7a427238e6ba92a84d0b529bbcde0:
     resolution: {tarball: https://codeload.github.com/ethereumjs/ethereumjs-abi/tar.gz/ee3994657fa7a427238e6ba92a84d0b529bbcde0}
     name: ethereumjs-abi
@@ -19156,3 +19235,15 @@ packages:
       bn.js: 4.12.0
       ethereumjs-util: 6.2.1
     dev: true
+
+  github.com/foundry-rs/forge-std/e8a047e3f40f13fa37af6fe14e6e06283d9a060e:
+    resolution: {tarball: https://codeload.github.com/foundry-rs/forge-std/tar.gz/e8a047e3f40f13fa37af6fe14e6e06283d9a060e}
+    name: forge-std
+    version: 1.5.6
+    dev: false
+
+  github.com/rari-capital/solmate/8f9b23f8838670afda0fd8983f2c41e8037ae6bc:
+    resolution: {commit: 8f9b23f8838670afda0fd8983f2c41e8037ae6bc, repo: git+ssh://git@github.com/rari-capital/solmate.git, type: git}
+    name: '@rari-capital/solmate'
+    version: 7.0.0-alpha.3
+    dev: false
