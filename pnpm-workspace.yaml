@@ -1,4 +1,3 @@
-prefer-workspace-packages: true
 # I think i'm missing packages
 packages:
   - 'packages/*'
