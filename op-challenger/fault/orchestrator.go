@@ -21,6 +21,8 @@ func NewOrchestrator(maxDepth int, traces []TraceProvider, root, counter Claim) 
 		game := NewGameState()
 		game.Put(root)
 		game.Put(counter)
+		PrettyPrintAlphabetClaim("init", root)
+		PrettyPrintAlphabetClaim("init", counter)
 		o.agents[i] = NewAgent(game, maxDepth, trace, &o)
 		o.outputChs[i] = make(chan Claim)
 	}
@@ -67,10 +69,11 @@ func PrettyPrintAlphabetClaim(name string, claim Claim) {
 	value := claim.Value
 	idx := value[30]
 	letter := value[31]
+	par_letter := claim.Parent.Value[31]
 	if claim.IsRoot() {
 		fmt.Printf("%s\ttrace %v letter %c\n", name, idx, letter)
 	} else {
-		fmt.Printf("%s\ttrace %v letter %c is attack %v\n", name, idx, letter, !claim.DefendsParent())
+		fmt.Printf("%s\ttrace %v letter %c is attack %v parent letter %c\n", name, idx, letter, !claim.DefendsParent(), par_letter)
 	}
 
 }

@@ -48,12 +48,17 @@ func (a *Agent) PerformActions() {
 // move determines & executes the next move given a claim pair
 func (a *Agent) move(claim, parent Claim) {
 	move, err := a.solver.NextMove(claim)
+	if err != nil {
+		fmt.Println("Error in next move", err)
+	}
 	if err != nil || move == nil {
-		fmt.Println(err, move)
 		return
 	}
 	if a.game.IsDuplicate(*move) {
+		fmt.Println("Duplicate")
 		return
 	}
+	PrettyPrintAlphabetClaim("moving against", claim)
+	PrettyPrintAlphabetClaim("moving with", *move)
 	a.responder.Respond(context.TODO(), *move)
 }
