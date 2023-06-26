@@ -52,9 +52,8 @@ func (a *Agent) move(claim, parent Claim) {
 		fmt.Println(err, move)
 		return
 	}
-	// TODO(CLI-4123): Don't send duplicate responses
-	// if a.game.IsDuplicate(move) {
-	// 	return
-	// }
+	if a.game.IsDuplicate(*move) {
+		return
+	}
 	a.responder.Respond(context.TODO(), *move)
 }

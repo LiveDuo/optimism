@@ -23,6 +23,8 @@ type Game interface {
 		claim  Claim
 		parent Claim
 	}
+
+	IsDuplicate(claim Claim) bool
 }
 
 // Node is a node in the game state tree.
@@ -76,6 +78,11 @@ func (g *gameState) Put(claim Claim) error {
 	}
 
 	return nil
+}
+
+func (g *gameState) IsDuplicate(claim Claim) bool {
+	_, ok := g.nodes[claim.ClaimData]
+	return ok
 }
 
 // addChild adds a node to parent [Claim].
