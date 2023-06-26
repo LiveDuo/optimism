@@ -48,7 +48,7 @@
     "@eth-optimism/core-utils": "^0.12.1",
     "@openzeppelin/contracts": "4.7.3",
     "@openzeppelin/contracts-upgradeable": "4.7.3",
-    "@rari-capital/solmate": "github:rari-capital/solmate#8f9b23f8838670afda0fd8983f2c41e8037ae6bc",
+    "@rari-capital/solmate": "github:transmissions11/solmate#8f9b23f8838670afda0fd8983f2c41e8037ae6bc",
     "clones-with-immutable-args": "github:Saw-mon-and-Natalie/clones-with-immutable-args#105efee1b9127ed7f6fedf139e1fc796ce8791f2",
     "ethers": "^5.7.0"
   },
