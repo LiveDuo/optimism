@@ -395,8 +395,7 @@ jobs:
       - run:
           name: slither
           command: |
-            slither --version
-            pnpm slither || exit 0
+            pnpm lint:check || echo "export LINT_STATUS=1" >> "$BASH_ENV"
           working_directory: packages/contracts-bedrock
       - run:
           name: gas snapshot
@@ -468,8 +467,7 @@ jobs:
       - run:
           name: slither
           command: |
-            slither --version
-            pnpm slither
+            slither --version && pnpm slither
       - run:
           name: invariant docs
           command: pnpm autogen:invariant-docs && git diff --exit-code ./invariant-docs/*.md
