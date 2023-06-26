@@ -2,6 +2,7 @@ package fault
 
 import (
 	"errors"
+	"fmt"
 )
 
 var (
@@ -82,10 +83,12 @@ func (g *gameState) addChild(parent ClaimData, child Node) {
 	// Get the parent node.
 	parentNode, ok := g.nodes[parent]
 	if !ok {
+		fmt.Println("no parent")
 		return
 	}
 	// Add the child to the parent node.
 	parentNode.children = append(parentNode.children, child)
+	g.nodes[parent] = parentNode
 }
 
 // ClaimPairs returns a list of claim pairs.

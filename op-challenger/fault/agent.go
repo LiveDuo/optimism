@@ -2,6 +2,7 @@ package fault
 
 import (
 	"context"
+	"fmt"
 	"sync"
 )
 
@@ -38,6 +39,7 @@ func (a *Agent) AddClaim(claim Claim) {
 func (a *Agent) PerformActions() {
 	a.mu.Lock()
 	defer a.mu.Unlock()
+	fmt.Println("performing an action")
 	for _, pair := range a.game.ClaimPairs() {
 		a.move(pair.claim, pair.parent)
 	}
@@ -47,6 +49,7 @@ func (a *Agent) PerformActions() {
 func (a *Agent) move(claim, parent Claim) {
 	move, err := a.solver.NextMove(claim)
 	if err != nil || move == nil {
+		fmt.Println(err, move)
 		return
 	}
 	// TODO(CLI-4123): Don't send duplicate responses
