@@ -24,7 +24,7 @@
     ]
   },
   "engines": {
-    "pnpm": ">=7"
+    "pnpm": ">=8"
   },
   "scripts": {
     "clean": "npx nx run-many --target=clean",
@@ -35,9 +35,9 @@
     "lint:ts:check": "npx nx run-many --target=lint:ts:check",
     "lint:check": "npx nx run-many --target=lint:check",
     "lint:fix": "npx nx run-many --target=lint:fix",
-    "lint:specs:fix": "yarn run markdownlint-cli2-fix \"./specs/**/*.md\"",
-    "lint:specs:check": "yarn run markdownlint-cli2  \"./specs/**/*.md\"",
-    "lint:specs:toc": "yarn run doctoc '--title=**Table of Contents**' ./specs",
+    "lint:specs:fix": "pnpm run markdownlint-cli2-fix \"./specs/**/*.md\"",
+    "lint:specs:check": "pnpm run markdownlint-cli2  \"./specs/**/*.md\"",
+    "lint:specs:toc": "pnpm run doctoc '--title=**Table of Contents**' ./specs",
     "postinstall": "patch-package",
     "ready": "pnpm lint && pnpm test",
     "prepare": "husky install",
