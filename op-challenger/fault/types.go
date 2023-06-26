@@ -23,6 +23,8 @@ type TraceProvider interface {
 type ClaimData struct {
 	Value common.Hash
 	Position
+	Parent        *Claim
+	DefendsParent bool
 }
 
 // Claim extends ClaimData with information about the relationship between two claims.
