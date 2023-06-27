@@ -87,11 +87,25 @@ func replaceType(typeRemappings map[string]string, in string) string {
 		return typeRemappings[in]
 	}
 
-	for oldType, newType := range typeRemappings {
+	matches := []string{}
+	for oldType := range typeRemappings {
 		if strings.Contains(in, oldType) {
-			return strings.Replace(in, oldType, newType, 1)
+			matches = append(matches, oldType)
 		}
 	}
 
-	return in
+	if len(matches) == 0 {
+		return in
+	}
+
+	out := matches[0]
+	for _, match := range matches {
+		for oldType, newType := range typeRemappings {
+			if strings.Contains(match, oldType) {
+				out = strings.Replace(in, oldType, newType, 1)
+			}
+		}
+	}
+
+	return out
 }
