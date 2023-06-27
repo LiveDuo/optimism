@@ -843,7 +843,7 @@ jobs:
           command: |
             curl -L https://foundry.paradigm.xyz | bash
             source $HOME/.bashrc
-            foundryup
+            yarn update:foundry
             echo 'export PATH=$HOME/.foundry/bin:$PATH' >> $BASH_ENV
       - run:
           name: Install and build
