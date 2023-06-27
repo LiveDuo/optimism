@@ -465,9 +465,13 @@ jobs:
       - check-changed:
           patterns: contracts-bedrock,hardhat-deploy-config
       - run:
+          name: Install pnpm package manager
+          command: |
+            npm i pnpm --global
+      - run:
           name: slither
           command: |
-            npm install pnpm --global && slither --version && pnpm slither
+            slither --version && pnpm slither || echo "export LINT_STATUS=1" >> "$BASH_ENV"
       - run:
           name: invariant docs
           command: pnpm autogen:invariant-docs && git diff --exit-code ./invariant-docs/*.md
