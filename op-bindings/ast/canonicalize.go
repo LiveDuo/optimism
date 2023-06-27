@@ -98,11 +98,13 @@ func replaceType(typeRemappings map[string]string, in string) string {
 		return in
 	}
 
+	sort.Strings(matches)
+
 	out := matches[0]
-	for _, match := range matches {
+	for _, match := range matches[1:] {
 		for oldType, newType := range typeRemappings {
 			if strings.Contains(match, oldType) {
-				out = strings.Replace(in, oldType, newType, 1)
+				out = strings.Replace(out, match, newType, 1)
 			}
 		}
 	}
