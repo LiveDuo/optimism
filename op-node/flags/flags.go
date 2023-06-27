@@ -44,23 +44,24 @@ var (
 		Usage:   fmt.Sprintf("Predefined network selection. Available networks: %s", strings.Join(chaincfg.AvailableNetworks(), ", ")),
 		EnvVars: prefixEnvVars("NETWORK"),
 	}
+	/* Optional Flags */
 	RPCListenAddr = &cli.StringFlag{
 		Name:    "rpc.addr",
 		Usage:   "RPC listening address",
 		EnvVars: prefixEnvVars("RPC_ADDR"),
+		Value:   "0.0.0.0",
 	}
 	RPCListenPort = &cli.IntFlag{
 		Name:    "rpc.port",
 		Usage:   "RPC listening port",
 		EnvVars: prefixEnvVars("RPC_PORT"),
+		Value:   8545,
 	}
 	RPCEnableAdmin = &cli.BoolFlag{
 		Name:    "rpc.enable-admin",
 		Usage:   "Enable the admin API (experimental)",
 		EnvVars: prefixEnvVars("RPC_ENABLE_ADMIN"),
 	}
-
-	/* Optional Flags */
 	L1TrustRPC = &cli.BoolFlag{
 		Name:    "l1.trustrpc",
 		Usage:   "Trust the L1 RPC, sync faster at risk of malicious/buggy RPC providing bad or inconsistent L1 data",
@@ -213,11 +214,11 @@ var (
 var requiredFlags = []cli.Flag{
 	L1NodeAddr,
 	L2EngineAddr,
-	RPCListenAddr,
-	RPCListenPort,
 }
 
 var optionalFlags = []cli.Flag{
+	RPCListenAddr,
+	RPCListenPort,
 	RollupConfig,
 	Network,
 	L1TrustRPC,
